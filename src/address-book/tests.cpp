@@ -37,3 +37,21 @@ TEST_CASE("No state shared between an AddressBookEntry and its copy") {
 
 	CHECK_FALSE(AddressGatsby.getImageName() == AddressDaisy.getImageName());
 }
+
+//Exercise 4.2
+//there are pointer data members, through this copy method no states are shared and if a value is changed in the one then it will change in the other
+//this is due to the pointer accessing the same data and as a result the image names are constant
+TEST_CASE("No state shared between an AddressBookEntry and its copy through assignment operation") {
+	Person Gatsby{"JayGatz", 12};
+	Person Daisy{"Daisy", 10};
+
+	// calls constructor
+	AddressBookEntry AddressGatsby{Gatsby, "West Egg"}; 
+	// copies object
+	AddressBookEntry AddressDaisy = AddressGatsby;
+
+	AddressGatsby.setPerson(Daisy);
+	AddressGatsby.setImageName("East Egg");
+
+	CHECK_FALSE(AddressGatsby.getImageName() == AddressDaisy.getImageName());
+}
