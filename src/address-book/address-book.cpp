@@ -3,6 +3,8 @@
 #include "address-book.h"
 #include <memory>
 using std::make_shared;
+using std::make_unique;
+using std::unique_ptr;
 
 // AddressBookEntry Constructor
 AddressBookEntry::AddressBookEntry(	const Person& person,
@@ -26,4 +28,22 @@ string AddressBookEntry::getImageName() const
 void AddressBookEntry::setImageName(string newname)
 {
 	if (_image_ptr != nullptr) _image_ptr->name(newname);
+}
+
+
+//Exercise 4.3
+AddressBookEntry::AddressBookEntry(const AddressBookEntry& rhs) : _person(rhs._person)
+{
+	if (rhs.getImageName() != "") 
+	{
+		_image_ptr = make_unique<Image>(rhs.getImageName());
+	}
+
+	//if (image_filename != "") 
+	//{
+	//	_image_ptr = make_shared<Image>(image_filename);
+	//	_image_ptr = make_unique<Image>(image_filename);
+	//}
+
+	unique_ptr<Image> _image_ptr;
 }

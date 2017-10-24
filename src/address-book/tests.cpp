@@ -55,3 +55,6 @@ TEST_CASE("No state shared between an AddressBookEntry and its copy through assi
 
 	CHECK_FALSE(AddressGatsby.getImageName() == AddressDaisy.getImageName());
 }
+
+//Exercise 4.3 - See address-book.cpp
+

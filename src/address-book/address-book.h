@@ -44,6 +44,9 @@ public:
 		\param image_filename a file containing an image of the person
 	*/
 	AddressBookEntry(const Person& person, const string& image_filename = "");
+
+	//Exercise 4.3
+	AddressBookEntry(const AddressBookEntry& rhs);
 	// Relies on the compiler-provided copy constructor
 	// Relies on the compiler-provided assignment operator
 
