@@ -58,3 +58,18 @@ TEST_CASE("No state shared between an AddressBookEntry and its copy through assi
 
 //Exercise 4.3 - See address-book.cpp
 
+//Exercise 4.4
+TEST_CASE("No state shared between an AddressBookEntry and its copy") {
+	Person Gatsby{"JayGatz", 12};
+	Person Daisy{"Daisy", 10};
+
+	// calls constructor
+	AddressBookEntry AddressGatsby{Gatsby, "West Egg"}; 
+	// copies object
+	AddressBookEntry AddressDaisy{AddressGatsby};
+
+	AddressGatsby.setPerson(Daisy);
+	AddressGatsby.setImageName("East Egg");
+
+	CHECK_FALSE(AddressGatsby.getImageName() == AddressDaisy.getImageName());
+}
