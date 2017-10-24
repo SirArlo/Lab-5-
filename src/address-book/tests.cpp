@@ -73,3 +73,8 @@ TEST_CASE("No state shared between an AddressBookEntry and its copy") {
 
 	CHECK_FALSE(AddressGatsby.getImageName() == AddressDaisy.getImageName());
 }
+
+//Exercise 4.5
+//When the objects are copied it happens completely, as a result they are completely independent
+//Before the temporary is constructed a check is conducted meaning that if the condition is not met then no assignment takes place
+//When the shared pointer becomes an unique pointer, it is a no-fail operation
