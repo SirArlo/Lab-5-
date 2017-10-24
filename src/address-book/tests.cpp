@@ -20,3 +20,20 @@ TEST_CASE("No state shared between a Date and its copy") {
 
 	CHECK_FALSE(current_day == next_day);
 }
+
+//Exercise 4.1
+//there are pointer data members, through this copy method no states are shared
+TEST_CASE("No state shared between an AddressBookEntry and its copy") {
+	Person Gatsby{"JayGatz", 12};
+	Person Daisy{"Daisy", 10};
+
+	// calls constructor
+	AddressBookEntry AddressGatsby{Gatsby, "West Egg"}; 
+	// copies object
+	AddressBookEntry AddressDaisy{AddressGatsby};
+
+	AddressGatsby.setPerson(Daisy);
+	AddressGatsby.setImageName("East Egg");
+
+	CHECK_FALSE(AddressGatsby.getImageName() == AddressDaisy.getImageName());
+}
